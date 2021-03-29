@@ -1,0 +1,27 @@
+.form-horizontal{
+	margin-top:5rem;
+	margin-left:5rem;
+	max-width:800px;
+}
+
+
+.form-group{
+	margin-top:10px;
+	position:relative;
+}
+
+.col-sm-2{
+	max-width:20%;
+}
+
+body::after{
+	content:"";
+	background-image:url(/images/background.png);
+	opacity:0.2;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	position:absolute;
+	z-index:-1;
+}

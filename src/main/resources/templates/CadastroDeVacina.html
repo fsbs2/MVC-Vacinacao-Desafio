@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{Layout}">
+<head>
+	<title>Cadastro de Usuários</title>
+</head>
+
+
+<section layout:fragment="conteudo">
+	<form class="form-horizontal" method="POST" action="/vacinacao" th:object="${vacinacao}">
+			<div th:replace="Mensagem"></div>
+			<div th:replace="MensagemErro"></div>
+			
+			<div class="card-body">
+				<h3>Vacina</h3>
+				<div class="form-group mb-3">
+				  <label for="vacina"></label>
+				  <div class="col-sm-2">
+				  	<select class="form-control" name="vacina">
+				  		<option value=PFIZER>Pfizer</option>
+				  		<option value=CORONAVAC>Coronavac</option>
+				  		<option value=ASTRAZENECA>AstraZeneca</option>
+				  		<option value=BUTANVAC>Butanvac</option>
+				  	</select>
+				  </div>
+				</div>
+				
+				<div class="form-floating mb-3">
+				  <input type="text" class="form-control" 
+				  th:classappend="${#fields.hasErrors('usuario')} ? is-invalid"
+				  id="usuario" placeholder="usuario" th:field="*{usuario}"/>
+				  <label for="usuario">Id do usuário</label>
+				</div>
+				
+				<div class="form-floating mb-3">
+				  <input type="text" class="form-control"
+				  	th:classappend="${#fields.hasErrors('dataVacinacao')} ? is-invalid"
+			   		id="dataVacinacao" th:field="*{dataVacinacao}"/>
+				  <label for="dataVacinacao">Data da vacinação</label>
+				</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2  col-sm-10">
+						<button type="submit" class="btn btn-primary">Salvar</button>
+					</div>
+				</div>
+				
+			</div>
+	</form>
+</section>
+
+</html>
